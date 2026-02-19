@@ -1,83 +1,65 @@
-# disk-access-pointcloud
-Binary tree indexing &amp; querying of point clouds with limited memory (Big Data project)
-Disk Access Model – Point Cloud Binary Tree
-Big Data Algorithms Project — April 2025
-Author: Lora Velevska
-University: South-West University “Neofit Rilski”
-Erasmus+ Exchange: University of Maribor, Slovenia
+Disk Access Point Cloud – Data Conversion Utility
+Overview
 
-Project Overview
-This project addresses the challenge of working with point cloud data (X, Y, Z coordinates) that is too large to fit in memory (RAM).
+This project was developed as part of a university assignment.
+It provides simple Python scripts for converting structured Excel data into .txt format for further processing.
 
-The goal is to preprocess this data by:
+The project focuses on basic data transformation and file handling in Python.
 
-Sorting it using a disk-based algorithm
+Features
 
-Building a binary tree by recursively dividing the space
+Reads structured data from Excel files
 
-Allowing fast bounding box (BBOX) queries using the tree structure
+Converts data into plain text (.txt) format
 
-The tree and data are stored in files, enabling fast search without exceeding memory limits.
+Includes multiple conversion modes:
 
-Input Example
-X         Y         Z
-394372.82 39305.84  235.3  
-394374.82 39305.82  233.7  
-394373.82 39305.83  231.2  
-394375.82 39305.81  236.0  
-...
-🛠 Technologies Used
-Python (or other)
+Full dataset export
 
-File-based data processing
+Limited/filtered export
 
-External Merge Sort
+Handles structured tabular data formatting
 
-Recursive binary tree structure
+Project Structure
 
-Bounding box search algorithm
+convert_excel_to_txt.py – Base conversion script
 
-Optional: matplotlib (for visualization)
+convert_excel_to_txt_full.py – Exports full dataset
 
-Functionality
-Part 0 – External Sorting Algorithm
-Sorts data using disk-based external merge sort
+convert_excel_to_txt_limited.py – Exports a limited or filtered subset
 
-Handles memory limitation of 10MB
+Technologies Used
 
-Writes sorted chunks to disk and merges recursively
+Python
 
-Part 1 – Constructing the Binary Tree
-Recursively divides point cloud by alternating X and Y
+Likely libraries: pandas, openpyxl (depending on your implementation)
 
-Saves median splits and file references in a tree
+Purpose
 
-Each node contains the median value; leaves contain file paths
+The goal of this project was to practice:
 
-Stops when each file has ≤10MB worth of points
+File I/O in Python
 
-Part 2 – Fast Queries on the Tree
-Input: xmin, xmax, ymin, ymax
+Data transformation workflows
 
-Tree is traversed recursively based on BBOX
+Working with structured datasets
 
-When a leaf is reached, its file is loaded and filtered
+Script modularization
 
-Only matching points are returned
+How to Run
 
-Optional: result is plotted using visualization
+Install dependencies (if required):
 
-Query Example
-# Bounding box input
-bbox = {
-    "xmin": 394370,
-    "xmax": 394374,
-    "ymin": 39305.80,
-    "ymax": 39305.85
-}
-Bonus Visualization (Optional)
-Students who visualize:
+pip install pandas openpyxl
 
-The binary tree structure
 
-The resulting point cloud from a BBOX query
+Run the desired script:
+
+python convert_excel_to_txt_full.py
+
+
+Adjust file paths inside the script as needed.
+
+Notes
+
+This project was developed for learning purposes and demonstrates basic data preprocessing techniques in Python.
