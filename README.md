@@ -1,4 +1,4 @@
-Disk Access Point Cloud – Data Conversion Utility
+# Disk Access Point Cloud – Data Conversion Utility
 Overview
 
 This project was developed as part of a university assignment.
